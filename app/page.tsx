@@ -254,6 +254,44 @@ function ShowroomSection() {
 }
 
 function PromocionesSection() {
+  const galleryImages = [
+    {
+      src: "/productos/CI-ARIA-EVO-X-N1-MOSSGREEN.jpg",
+      alt: "Aria Evo X N1+A11 MKII+Node",
+    },
+    {
+      src: "/productos/aria_n2_bhg_face1.jpg",
+      alt: "Bocina de piso Aria Evo X N2 (PAR)",
+    },
+    {
+      src: "/productos/aria_n1_bhg_couple.jpg",
+      alt: "Bocina de estantería Theva N1",
+    },
+    {
+      src: "/productos/THEVA-N2-NAIT-5SI-NODE-LIGHT-WOOD.jpg",
+      alt: "Theva N2+NAIT 5SI+Node",
+    },
+    {
+      src: "/productos/THEVAN1_POWERNODEEDGE.jpg",
+      alt: "Bocinas Focal Theva N1 + M1 Marantz Amplificador Integrado",
+    },
+    {
+      src: "/productos/NAIM-UNITI-ATOM.jpg",
+      alt: "Amplificador Streamer Uniti Atom 40Wx2",
+    },
+    {
+      src: "/productos/NAIM-NAIT-5SI.jpg",
+      alt: "Amplificador Integrado NAIT 5SI 60Wx2",
+    },
+    {
+      src: "/productos/THEVA-N2-C700-BLACK.jpg",
+      alt: "Theva N2+C700",
+    },
+    {
+      src: "/productos/NAIM-UNITI-NOVA.jpg",
+      alt: "Amplificador Streamer Uniti Nova 80Wx2",
+    },
+  ];
   const benefits = [
     {
       icon: <IoVolumeHigh className="w-15 h-15" />,
@@ -328,6 +366,35 @@ function PromocionesSection() {
                 Comprar Ahora
               </Button>
             </Link>
+          </div>
+        </div>
+        <div>
+          <h3 className="text-3xl font-bold text-center mb-12 mt-16">
+            Productos que puedes encontrar en el Hot Sale
+          </h3>
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {galleryImages.map((image, index) => (
+              <Link
+                key={index}
+                href="https://fortuneacoustics.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group"
+              >
+                <div className="relative aspect-square rounded-xl overflow-hidden shadow-md mb-3">
+                  <Image
+                    src={image.src}
+                    alt={image.alt}
+                    fill
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                    className="object-cover transition-transform group-hover:scale-105"
+                  />
+                </div>
+                <h4 className="text-lg font-semibold text-center text-[#495057] group-hover:text-[#7F6A4C]">
+                  {image.alt}
+                </h4>
+              </Link>
+            ))}
           </div>
         </div>
       </div>
