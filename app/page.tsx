@@ -112,18 +112,11 @@ function MobileNav() {
         <div className="fixed inset-0 top-16 z-50 bg-white p-6 animate-in fade-in slide-in-from-top-5">
           <nav className="flex flex-col gap-6">
             <Link
-              href="#about"
+              href="#promociones"
               className="text-lg font-medium hover:text-[#B09B6B] transition-colors"
               onClick={() => setIsOpen(false)}
             >
-              Nosotros
-            </Link>
-            <Link
-              href="#values"
-              className="text-lg font-medium hover:text-[#B09B6B] transition-colors"
-              onClick={() => setIsOpen(false)}
-            >
-              Valores
+              Promociones
             </Link>
             <Link
               href="#showroom"
@@ -131,13 +124,6 @@ function MobileNav() {
               onClick={() => setIsOpen(false)}
             >
               Showroom
-            </Link>
-            <Link
-              href="#promociones"
-              className="text-lg font-medium hover:text-[#B09B6B] transition-colors"
-              onClick={() => setIsOpen(false)}
-            >
-              Promociones
             </Link>
             <Link
               href="#contact"
@@ -314,7 +300,7 @@ function PromocionesSection() {
   return (
     <section id="promociones" className="py-24 bg-[#F8F9FA]">
       <div className="container px-4 md:px-6">
-        <h2 className="text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl text-center mb-16">
+        <h2 className="text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl text-center mb-6">
           Promociones <span className="text-[#7F6A4C]">Exclusivas</span>
         </h2>
         <p className="text-[#495057] text-2xl text-center mb-6">
@@ -323,7 +309,7 @@ function PromocionesSection() {
           ¡No te lo pierdas!
         </p>
 
-        <div className="relative lg:col-span-2 h-[500px] rounded-xl overflow-hidden group shadow-md mb-3">
+        <div className="relative lg:col-span-2 h-[500px] rounded-xl overflow-hidden group shadow-md mb-6">
           <picture>
             {/* Imagen para móviles */}
             <source
@@ -356,17 +342,6 @@ function PromocionesSection() {
               </div>
             ))}
           </div>
-          <div className="flex justify-center items-center text-center mt-10">
-            <Link
-              href="https://fortuneacoustics.com/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <Button className="bg-[#7F6A4C] hover:bg-[#897A54] px-10 py-7 text-white text-xl">
-                Comprar Ahora
-              </Button>
-            </Link>
-          </div>
         </div>
         <div>
           <h3 className="text-3xl font-bold text-center mb-12 mt-16">
@@ -374,13 +349,7 @@ function PromocionesSection() {
           </h3>
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {galleryImages.map((image, index) => (
-              <Link
-                key={index}
-                href="https://fortuneacoustics.com/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group"
-              >
+              <div key={index} className="group">
                 <div className="relative aspect-square rounded-xl overflow-hidden shadow-md mb-3">
                   <Image
                     src={image.src}
@@ -393,8 +362,19 @@ function PromocionesSection() {
                 <h4 className="text-lg font-semibold text-center text-[#495057] group-hover:text-[#7F6A4C]">
                   {image.alt}
                 </h4>
-              </Link>
+              </div>
             ))}
+          </div>
+          <div className="flex justify-center items-center text-center mt-10">
+            <Link
+              href="https://fortuneacoustics.com/ofertas-mensuales/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Button className="bg-[#7F6A4C] hover:bg-[#897A54] px-10 py-7 text-white text-xl">
+                Comprar Ahora
+              </Button>
+            </Link>
           </div>
         </div>
       </div>
@@ -559,18 +539,10 @@ function Footer() {
             <ul className="space-y-2 text-sm">
               <li>
                 <Link
-                  href="#about"
+                  href="#promociones"
                   className="text-white/80 hover:text-[#B09B6B]"
                 >
-                  Sobre Nosotros
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="#values"
-                  className="text-white/80 hover:text-[#B09B6B]"
-                >
-                  Nuestros Valores
+                  Promociones
                 </Link>
               </li>
               <li>
@@ -579,14 +551,6 @@ function Footer() {
                   className="text-white/80 hover:text-[#B09B6B]"
                 >
                   Showroom
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="#promociones"
-                  className="text-white/80 hover:text-[#B09B6B]"
-                >
-                  Promociones
                 </Link>
               </li>
               <li>
