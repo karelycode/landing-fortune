@@ -155,14 +155,28 @@ function MobileNav() {
 
 function HeroSection() {
   return (
-    <section id="hero" className="relative h-[90vh] overflow-hidden">
-      <Image
-        src="/Banner hot sale.png"
-        alt="Equipos de audio de alta gama"
-        fill
-        className="object-cover object-center "
-        priority
-      />
+    <section id="hero" className="relative h-[90vh]">
+      <div className="h-full">
+        <Image
+          src="/Banner hot sale.png"
+          alt="Equipos de audio de alta gama"
+          fill
+          className="object-cover object-center"
+          priority
+        />
+      </div>
+      <div className="absolute bottom-3 left-0 right-0 bg-white/0 backdrop-blur-sm p-4">
+        <Link
+          href="https://www.hotsale.com.mx/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex justify-center"
+        >
+          <p className="text-[#7F6A4C] hover:text-[#897A54] font-medium">
+            Conocer más del Hot Sale
+          </p>
+        </Link>
+      </div>
     </section>
   );
 }
@@ -201,12 +215,16 @@ function ShowroomSection() {
         <h2 className="text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl text-center mb-16">
           Nuestro <span className="text-[#7F6A4C]">Showroom</span>
         </h2>
-
+        <p className="text-[#495057] text-2xl text-center mb-6">
+          Ven y conoce nuestros equipos en promoción en nuestro showroom. Te
+          invitamos a experimentar la calidad de sonido y diseño excepcionales
+          que ofrecemos.
+        </p>
         <div className="mb-16">
           <div className="relative aspect-video rounded-xl overflow-hidden shadow-lg">
             <iframe
               className="w-full h-full"
-              src="https://www.youtube.com/embed/EppSszFda-c" // Reemplaza TU_VIDEO_ID con el ID de tu video
+              src="https://www.youtube.com/embed/Rc2BS69_jss" // Reemplaza TU_VIDEO_ID con el ID de tu video
               title="Fortune Acoustics Video"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowFullScreen
@@ -267,27 +285,24 @@ function PromocionesSection() {
           ¡No te lo pierdas!
         </p>
 
-        <div className="relative lg:col-span-2 h-[300px] rounded-xl overflow-hidden group shadow-md mb-3">
-          <Image
-            src="/promociones/COVER de interna de Marca Celular.png"
-            alt="Promociones especiales"
-            fill
-            className="object-cover transition-transform "
-          />
+        <div className="relative lg:col-span-2 h-[500px] rounded-xl overflow-hidden group shadow-md mb-3">
+          <picture>
+            {/* Imagen para móviles */}
+            <source
+              media="(max-width: 768px)"
+              srcSet="/promociones/oferta1-movil.png"
+            />
+            {/* Imagen para escritorio */}
+            <Image
+              src="/promociones/oferta1.png"
+              alt="Promociones especiales"
+              fill
+              className="object-cover transition-transform"
+              sizes="(max-width: 768px) 100vw, 100vw"
+            />
+          </picture>
         </div>
-        <div className="mb-6">
-          <p className="text-center ">
-            Promoción valida del 26 de Mayo al 3 de Junio del 2025
-          </p>
-          <Link
-            href="https://www.hotsale.com.mx/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex justify-center"
-          >
-            <p>Conocer más del Hot Sale</p>
-          </Link>
-        </div>
+
         <div>
           <h3 className="text-3xl font-bold text-center mb-8 ">
             Beneficios de comprar durante el Hot Sale

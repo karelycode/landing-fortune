@@ -13,7 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Fortune Acoustics",
+  title: "🔥 Hot Sale 2025 Fortune Acoustics",
   description: "Conoce nuestros productos y servicios",
 };
 
