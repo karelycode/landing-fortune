@@ -16,10 +16,8 @@ import {
   IoLogoFacebook,
   IoLogoInstagram,
   IoLogoYoutube,
-  IoLogoLinkedin,
   IoCallOutline,
   IoLogoWhatsapp,
-  IoMail,
   IoMailOutline,
   IoLocationOutline,
 } from "react-icons/io5";
@@ -39,10 +37,9 @@ export default function LandingPage() {
     <div className="min-h-screen bg-white text-[#323E48]">
       <Header />
       <HeroSection />
-      <AboutSection />
-      <ValuesSection />
-      <ShowroomSection />
       <PromocionesSection />
+      <ShowroomSection />
+
       <ContactSection />
       <Footer />
     </div>
@@ -68,18 +65,11 @@ function Header() {
         </Link>
         <nav className="hidden md:flex gap-6">
           <Link
-            href="#about"
+            href="#promociones"
             className="text-sm font-medium hover:text-[#B09B6B] transition-colors"
-            onClick={(e) => scrollToSection(e, "#about")}
+            onClick={(e) => scrollToSection(e, "#promociones")}
           >
-            Nosotros
-          </Link>
-          <Link
-            href="#values"
-            className="text-sm font-medium hover:text-[#B09B6B] transition-colors"
-            onClick={(e) => scrollToSection(e, "#values")}
-          >
-            Valores
+            Promociones
           </Link>
           <Link
             href="#showroom"
@@ -88,13 +78,7 @@ function Header() {
           >
             Showroom
           </Link>
-          <Link
-            href="#promociones"
-            className="text-sm font-medium hover:text-[#B09B6B] transition-colors"
-            onClick={(e) => scrollToSection(e, "#promociones")}
-          >
-            Promociones
-          </Link>
+
           <Link
             href="#contact"
             className="text-sm font-medium hover:text-[#B09B6B] transition-colors"
@@ -171,123 +155,14 @@ function MobileNav() {
 
 function HeroSection() {
   return (
-    <section id="hero" className="relative h-[80vh] overflow-hidden">
+    <section id="hero" className="relative h-[90vh] overflow-hidden">
       <Image
-        src="/McIntosh 3.jpg"
+        src="/Banner hot sale.png"
         alt="Equipos de audio de alta gama"
         fill
-        className="object-cover object-center brightness-90"
+        className="object-cover object-center "
         priority
       />
-      <div className="absolute inset-0 flex flex-col items-center justify-center text-center p-4 bg-[#323E48]/50">
-        <h1 className="max-w-4xl text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl lg:text-7xl text-white">
-          Experimenta la{" "}
-          <span className="text-[#B09B6B]">Perfección Sonora</span>
-        </h1>
-        <p className="mt-6 max-w-2xl text-2xl text-white/90">
-          Descubre los mejores equipos de audio HiFi para los audiófilos más
-          exigentes.
-        </p>
-        <div className="mt-10 flex flex-col sm:flex-row gap-4">
-          <Link
-            href="#about"
-            className="w-full "
-            onClick={(e) => scrollToSection(e, "#about")}
-          >
-            <Button className="bg-[#7F6A4C] hover:bg-[#897A54] text-white ">
-              Ver más
-            </Button>
-          </Link>
-        </div>
-      </div>
-    </section>
-  );
-}
-
-function AboutSection() {
-  return (
-    <section id="about" className="py-24 bg-white">
-      <div className="container px-4 md:px-6">
-        <div className="grid gap-10 lg:grid-cols-2 items-center">
-          <div>
-            <h2 className="text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl mb-6">
-              Sobre <span className="text-[#7F6A4C]">Nosotros</span>
-            </h2>
-            <p className="text-[#495057] text-xl mb-4">
-              Fortune Acoustics se fundó con una profunda pasión por ofrecer una
-              calidad de sonido excepcional, por llevar la cultura del audio a
-              otro nivel en cada hogar y transformar cada espacio en una
-              experiencia auditiva única. Desde el principio se ha trabajado por
-              mejorar la calidad y experiencia que necesitas para tu proyecto o
-              sistema HiFi.
-            </p>
-
-            <p className="text-[#495057] text-xl mb-4">
-              La creatividad es el corazón de su trabajo, y cada instalación se
-              convierte en una obra maestra diseñada para brindar una
-              experiencia sonora excepcional desde la selección de productos
-              hasta la instalación final, cada detalle es cuidadosamente
-              considerado para asegurar una satisfacción completa.
-            </p>
-          </div>
-          <div className="relative h-[400px] rounded-xl overflow-hidden shadow-lg">
-            <Image
-              src="/IMG-20250312-WA0011.jpg"
-              alt="Sala de exposición de Fortune Acoustics"
-              fill
-              className="object-cover"
-            />
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-}
-
-function ValuesSection() {
-  const values = [
-    {
-      title: "Soporte y Asesoría",
-      description:
-        "El equipo está preparado para dar soporte y ayudarte con dudas que vayan surgiendo durante el desarollo y funcionamiento de tu sistema de audio.",
-    },
-    {
-      title: "Garantías",
-      description:
-        "Cubrimos las garantías de fabrica como el funcionamiento del equipo o daños en la entrega, además de garantía de instalación de equipo.",
-    },
-    {
-      title: "Satisfacción del Cliente",
-      description:
-        "No estamos satisfechos hasta que experimentes la perfección de audio en tu hogar.",
-    },
-    {
-      title: "Capacitación Continua",
-      description:
-        "Implementamos programas de formación continua que impulsan la excelencia operativa, asegurando servicios de calidad superior mediante actualización permanente de competencias técnicas y protocolos certificados.",
-    },
-  ];
-
-  return (
-    <section id="values" className="py-24 bg-[#F8F9FA]">
-      <div className="container px-4 md:px-6">
-        <h2 className="text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl text-center mb-16">
-          Nuestros <span className="text-[#7F6A4C]">Valores</span>
-        </h2>
-        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
-          {values.map((value, index) => (
-            <div
-              key={index}
-              className="bg-white p-6 rounded-xl border border-[#B09B6B]/20 hover:border-[#B09B6B]/50 transition-colors shadow-md"
-            >
-              <h3 className="text-xl font-bold mb-3 text-[#7F6A4C]">
-                {value.title}
-              </h3>
-              <p className="text-[#495057]">{value.description}</p>
-            </div>
-          ))}
-        </div>
-      </div>
     </section>
   );
 }
@@ -331,7 +206,7 @@ function ShowroomSection() {
           <div className="relative aspect-video rounded-xl overflow-hidden shadow-lg">
             <iframe
               className="w-full h-full"
-              src="https://youtu.be/EppSszFda-c" // Reemplaza TU_VIDEO_ID con el ID de tu video
+              src="https://www.youtube.com/embed/EppSszFda-c" // Reemplaza TU_VIDEO_ID con el ID de tu video
               title="Fortune Acoustics Video"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowFullScreen
@@ -392,13 +267,26 @@ function PromocionesSection() {
           ¡No te lo pierdas!
         </p>
 
-        <div className="relative lg:col-span-2 h-[300px] rounded-xl overflow-hidden group shadow-md mb-6">
+        <div className="relative lg:col-span-2 h-[300px] rounded-xl overflow-hidden group shadow-md mb-3">
           <Image
             src="/promociones/COVER de interna de Marca Celular.png"
             alt="Promociones especiales"
             fill
             className="object-cover transition-transform "
           />
+        </div>
+        <div className="mb-6">
+          <p className="text-center ">
+            Promoción valida del 26 de Mayo al 3 de Junio del 2025
+          </p>
+          <Link
+            href="https://www.hotsale.com.mx/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex justify-center"
+          >
+            <p>Conocer más del Hot Sale</p>
+          </Link>
         </div>
         <div>
           <h3 className="text-3xl font-bold text-center mb-8 ">
