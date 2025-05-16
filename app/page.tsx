@@ -34,13 +34,15 @@ const scrollToSection = (
 
 export default function LandingPage() {
   return (
-    <div className="min-h-screen bg-white text-[#323E48]">
-      <Header />
-      <HeroSection />
-      <PromocionesSection />
-      <ShowroomSection />
-      <ContactSection />
-      <Footer />
+    <div className="min-h-screen bg-white text-[#323E48] flex flex-col items-center">
+      <div className="">
+        <Header />
+        <HeroSection />
+        <PromocionesSection />
+        <ShowroomSection />
+        <ContactSection />
+        <Footer />
+      </div>
     </div>
   );
 }
@@ -141,7 +143,7 @@ function MobileNav() {
 function HeroSection() {
   return (
     <section id="hero" className="relative h-[90vh]">
-      <div className="h-full">
+      <div className="h-full ">
         <Image
           src="/Banner hot sale.png"
           alt="Equipos de audio de alta gama"
@@ -390,71 +392,24 @@ function ContactSection() {
             <h2 className="text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl mb-6">
               Mantente <span className="text-[#7F6A4C]">Conectado</span>
             </h2>
-            <p className="text-[#495057]  text-xl mb-6">
-              Suscríbete para recibir promociones exclusivas, invitaciones a
-              eventos especiales y ser el primero en conocer nuestros nuevos
-              equipos de audio.
-            </p>
+
             <div className="bg-white p-6 rounded-xl shadow-md">
-              <form className="space-y-4">
-                <div>
-                  <label
-                    htmlFor="name"
-                    className="block text-sm font-medium mb-2"
-                  >
-                    Nombre Completo
-                  </label>
-                  <Input
-                    id="name"
-                    placeholder="Juan Pérez"
-                    className="border-[#B09B6B]/30 focus:border-[#7F6A4C]"
-                  />
-                </div>
-                <div>
-                  <label
-                    htmlFor="phone"
-                    className="block text-sm font-medium mb-2"
-                  >
-                    Número de Teléfono
-                  </label>
-                  <Input
-                    id="phone"
-                    type="tel"
-                    placeholder="+34 (555) 000-000"
-                    className="border-[#B09B6B]/30 focus:border-[#7F6A4C]"
-                  />
-                </div>
-                <div>
-                  <label
-                    htmlFor="email"
-                    className="block text-sm font-medium mb-2"
-                  >
-                    Correo Electrónico
-                  </label>
-                  <Input
-                    id="email"
-                    type="email"
-                    placeholder="juan@ejemplo.com"
-                    className="border-[#B09B6B]/30 focus:border-[#7F6A4C]"
-                  />
-                </div>
-                <div>
-                  <label
-                    htmlFor="message"
-                    className="block text-sm font-medium mb-2"
-                  >
-                    Mensaje (Opcional)
-                  </label>
-                  <Textarea
-                    id="message"
-                    placeholder="Cuéntanos qué te interesa..."
-                    className="border-[#B09B6B]/30 focus:border-[#7F6A4C]"
-                  />
-                </div>
-                <Button className="w-full bg-[#7F6A4C] hover:bg-[#897A54] text-white">
+              <div>
+                <p className="text-[#495057]  text-xl mb-6">
+                  Suscríbete para recibir promociones exclusivas, invitaciones a
+                  eventos especiales y ser el primero en conocer nuestros nuevos
+                  equipos de audio.
+                </p>
+              </div>
+              <Link
+                href="https://zfrmz.com/cm2a4Qa1gX0TLJe61tj9"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Button className="w-full h-12 bg-[#7F6A4C] hover:bg-[#897A54] text-white text-2xl">
                   Suscribirse a Promociones
                 </Button>
-              </form>
+              </Link>
             </div>
           </div>
           <div className="relative h-[500px] rounded-xl overflow-hidden shadow-lg">
