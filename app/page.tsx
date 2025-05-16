@@ -4,8 +4,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
 import { useState } from "react";
 import {
   IoVolumeHigh,
@@ -16,14 +14,11 @@ import {
   IoLogoFacebook,
   IoLogoInstagram,
   IoLogoYoutube,
-  IoLogoLinkedin,
   IoCallOutline,
   IoLogoWhatsapp,
-  IoMail,
   IoMailOutline,
   IoLocationOutline,
 } from "react-icons/io5";
-import { useRouter } from "next/navigation";
 
 const scrollToSection = (
   e: React.MouseEvent<HTMLAnchorElement>,
@@ -36,15 +31,15 @@ const scrollToSection = (
 
 export default function LandingPage() {
   return (
-    <div className="min-h-screen bg-white text-[#323E48]">
-      <Header />
-      <HeroSection />
-      <AboutSection />
-      <ValuesSection />
-      <ShowroomSection />
-      <PromocionesSection />
-      <ContactSection />
-      <Footer />
+    <div className="min-h-screen bg-white text-[#323E48] flex flex-col items-center">
+      <div className="">
+        <Header />
+        <HeroSection />
+        <PromocionesSection />
+        <ShowroomSection />
+        <ContactSection />
+        <Footer />
+      </div>
     </div>
   );
 }
@@ -68,18 +63,11 @@ function Header() {
         </Link>
         <nav className="hidden md:flex gap-6">
           <Link
-            href="#about"
+            href="#promociones"
             className="text-sm font-medium hover:text-[#B09B6B] transition-colors"
-            onClick={(e) => scrollToSection(e, "#about")}
+            onClick={(e) => scrollToSection(e, "#promociones")}
           >
-            Nosotros
-          </Link>
-          <Link
-            href="#values"
-            className="text-sm font-medium hover:text-[#B09B6B] transition-colors"
-            onClick={(e) => scrollToSection(e, "#values")}
-          >
-            Valores
+            Promociones
           </Link>
           <Link
             href="#showroom"
@@ -88,13 +76,7 @@ function Header() {
           >
             Showroom
           </Link>
-          <Link
-            href="#promociones"
-            className="text-sm font-medium hover:text-[#B09B6B] transition-colors"
-            onClick={(e) => scrollToSection(e, "#promociones")}
-          >
-            Promociones
-          </Link>
+
           <Link
             href="#contact"
             className="text-sm font-medium hover:text-[#B09B6B] transition-colors"
@@ -125,40 +107,35 @@ function MobileNav() {
       </Button>
 
       {isOpen && (
-        <div className="fixed inset-0 top-16 z-50 bg-white p-6 animate-in fade-in slide-in-from-top-5">
-          <nav className="flex flex-col gap-6">
-            <Link
-              href="#about"
-              className="text-lg font-medium hover:text-[#B09B6B] transition-colors"
-              onClick={() => setIsOpen(false)}
-            >
-              Nosotros
-            </Link>
-            <Link
-              href="#values"
-              className="text-lg font-medium hover:text-[#B09B6B] transition-colors"
-              onClick={() => setIsOpen(false)}
-            >
-              Valores
-            </Link>
-            <Link
-              href="#showroom"
-              className="text-lg font-medium hover:text-[#B09B6B] transition-colors"
-              onClick={() => setIsOpen(false)}
-            >
-              Showroom
-            </Link>
+        <div className="fixed inset-0 top-16 z-50 bg-white/95 backdrop-blur-sm p-6 animate-in fade-in slide-in-from-top-5">
+          <nav className="flex flex-col gap-6 bg-white rounded-lg p-4 shadow-lg max-w-md mx-auto">
             <Link
               href="#promociones"
               className="text-lg font-medium hover:text-[#B09B6B] transition-colors"
-              onClick={() => setIsOpen(false)}
+              onClick={(e) => {
+                scrollToSection(e, "#promociones");
+                setIsOpen(false);
+              }}
             >
               Promociones
             </Link>
             <Link
+              href="#showroom"
+              className="text-lg font-medium hover:text-[#B09B6B] transition-colors"
+              onClick={(e) => {
+                scrollToSection(e, "#showroom");
+                setIsOpen(false);
+              }}
+            >
+              Showroom
+            </Link>
+            <Link
               href="#contact"
               className="text-lg font-medium hover:text-[#B09B6B] transition-colors"
-              onClick={() => setIsOpen(false)}
+              onClick={(e) => {
+                scrollToSection(e, "#contact");
+                setIsOpen(false);
+              }}
             >
               Contacto
             </Link>
@@ -171,122 +148,27 @@ function MobileNav() {
 
 function HeroSection() {
   return (
-    <section id="hero" className="relative h-[80vh] overflow-hidden">
-      <Image
-        src="/McIntosh 3.jpg"
-        alt="Equipos de audio de alta gama"
-        fill
-        className="object-cover object-center brightness-90"
-        priority
-      />
-      <div className="absolute inset-0 flex flex-col items-center justify-center text-center p-4 bg-[#323E48]/50">
-        <h1 className="max-w-4xl text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl lg:text-7xl text-white">
-          Experimenta la{" "}
-          <span className="text-[#B09B6B]">Perfección Sonora</span>
-        </h1>
-        <p className="mt-6 max-w-2xl text-2xl text-white/90">
-          Descubre los mejores equipos de audio HiFi para los audiófilos más
-          exigentes.
-        </p>
-        <div className="mt-10 flex flex-col sm:flex-row gap-4">
-          <Link
-            href="#about"
-            className="w-full "
-            onClick={(e) => scrollToSection(e, "#about")}
-          >
-            <Button className="bg-[#7F6A4C] hover:bg-[#897A54] text-white ">
-              Ver más
-            </Button>
-          </Link>
-        </div>
+    <section id="hero" className="relative h-[90vh]">
+      <div className="h-full ">
+        <Image
+          src="/banner oficial.png"
+          alt="Equipos de audio de alta gama"
+          fill
+          className="object-cover object-center"
+          priority
+        />
       </div>
-    </section>
-  );
-}
-
-function AboutSection() {
-  return (
-    <section id="about" className="py-24 bg-white">
-      <div className="container px-4 md:px-6">
-        <div className="grid gap-10 lg:grid-cols-2 items-center">
-          <div>
-            <h2 className="text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl mb-6">
-              Sobre <span className="text-[#7F6A4C]">Nosotros</span>
-            </h2>
-            <p className="text-[#495057] text-xl mb-4">
-              Fortune Acoustics se fundó con una profunda pasión por ofrecer una
-              calidad de sonido excepcional, por llevar la cultura del audio a
-              otro nivel en cada hogar y transformar cada espacio en una
-              experiencia auditiva única. Desde el principio se ha trabajado por
-              mejorar la calidad y experiencia que necesitas para tu proyecto o
-              sistema HiFi.
-            </p>
-
-            <p className="text-[#495057] text-xl mb-4">
-              La creatividad es el corazón de su trabajo, y cada instalación se
-              convierte en una obra maestra diseñada para brindar una
-              experiencia sonora excepcional desde la selección de productos
-              hasta la instalación final, cada detalle es cuidadosamente
-              considerado para asegurar una satisfacción completa.
-            </p>
-          </div>
-          <div className="relative h-[400px] rounded-xl overflow-hidden shadow-lg">
-            <Image
-              src="/IMG-20250312-WA0011.jpg"
-              alt="Sala de exposición de Fortune Acoustics"
-              fill
-              className="object-cover"
-            />
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-}
-
-function ValuesSection() {
-  const values = [
-    {
-      title: "Soporte y Asesoría",
-      description:
-        "El equipo está preparado para dar soporte y ayudarte con dudas que vayan surgiendo durante el desarollo y funcionamiento de tu sistema de audio.",
-    },
-    {
-      title: "Garantías",
-      description:
-        "Cubrimos las garantías de fabrica como el funcionamiento del equipo o daños en la entrega, además de garantía de instalación de equipo.",
-    },
-    {
-      title: "Satisfacción del Cliente",
-      description:
-        "No estamos satisfechos hasta que experimentes la perfección de audio en tu hogar.",
-    },
-    {
-      title: "Capacitación Continua",
-      description:
-        "Implementamos programas de formación continua que impulsan la excelencia operativa, asegurando servicios de calidad superior mediante actualización permanente de competencias técnicas y protocolos certificados.",
-    },
-  ];
-
-  return (
-    <section id="values" className="py-24 bg-[#F8F9FA]">
-      <div className="container px-4 md:px-6">
-        <h2 className="text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl text-center mb-16">
-          Nuestros <span className="text-[#7F6A4C]">Valores</span>
-        </h2>
-        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
-          {values.map((value, index) => (
-            <div
-              key={index}
-              className="bg-white p-6 rounded-xl border border-[#B09B6B]/20 hover:border-[#B09B6B]/50 transition-colors shadow-md"
-            >
-              <h3 className="text-xl font-bold mb-3 text-[#7F6A4C]">
-                {value.title}
-              </h3>
-              <p className="text-[#495057]">{value.description}</p>
-            </div>
-          ))}
-        </div>
+      <div className="absolute bottom-3 left-0 right-0 bg-white/0 backdrop-blur-sm p-4">
+        <Link
+          href="https://www.hotsale.com.mx/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex justify-center"
+        >
+          <p className="text-[#7F6A4C] hover:text-[#897A54] font-medium">
+            Conocer más del Hot Sale
+          </p>
+        </Link>
       </div>
     </section>
   );
@@ -295,7 +177,7 @@ function ValuesSection() {
 function ShowroomSection() {
   const galleryImages = [
     {
-      src: "/IMG-20250312-WA0010.jpg",
+      src: "/shr7.jpg",
       alt: "Amplificadores de alta fidelidad",
     },
     {
@@ -303,19 +185,19 @@ function ShowroomSection() {
       alt: "Sala de audición principal",
     },
     {
-      src: "/IMG-20250312-WA0014.jpg",
+      src: "/shr9.jpg",
       alt: "Colección de altavoces premium",
     },
     {
-      src: "/Sonus Faber 1.jpg",
+      src: "/shr3.png",
       alt: "Tocadiscos de edición limitada",
     },
     {
-      src: "/Pro Ject 2.jpg",
+      src: "/shr8.jpg",
       alt: "Auriculares audiófilo",
     },
     {
-      src: "/Naim 2.jpg",
+      src: "/shr2.png",
       alt: "Equipos de audio vintage",
     },
   ];
@@ -326,12 +208,16 @@ function ShowroomSection() {
         <h2 className="text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl text-center mb-16">
           Nuestro <span className="text-[#7F6A4C]">Showroom</span>
         </h2>
-
+        <p className="text-[#495057] text-2xl text-center mb-6">
+          Ven y conoce nuestros equipos en promoción en nuestro showroom. Te
+          invitamos a experimentar la calidad de sonido y diseño excepcionales
+          que ofrecemos.
+        </p>
         <div className="mb-16">
           <div className="relative aspect-video rounded-xl overflow-hidden shadow-lg">
             <iframe
               className="w-full h-full"
-              src="https://youtu.be/EppSszFda-c" // Reemplaza TU_VIDEO_ID con el ID de tu video
+              src="https://www.youtube.com/embed/Rc2BS69_jss" // Reemplaza TU_VIDEO_ID con el ID de tu video
               title="Fortune Acoustics Video"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowFullScreen
@@ -361,6 +247,44 @@ function ShowroomSection() {
 }
 
 function PromocionesSection() {
+  const galleryImages = [
+    {
+      src: "/productos/CI-ARIA-EVO-X-N1-MOSSGREEN.jpg",
+      alt: "Aria Evo X N1+A11 MKII+Node",
+    },
+    {
+      src: "/productos/aria_n2_bhg_face1.jpg",
+      alt: "Bocina de piso Aria Evo X N2 (PAR)",
+    },
+    {
+      src: "/productos/aria_n1_bhg_couple.jpg",
+      alt: "Bocina de estantería Theva N1",
+    },
+    {
+      src: "/productos/THEVA-N2-NAIT-5SI-NODE-LIGHT-WOOD.jpg",
+      alt: "Theva N2+NAIT 5SI+Node",
+    },
+    {
+      src: "/productos/THEVAN1_POWERNODEEDGE.jpg",
+      alt: "Bocinas Focal Theva N1 + M1 Marantz Amplificador Integrado",
+    },
+    {
+      src: "/productos/NAIM-UNITI-ATOM.jpg",
+      alt: "Amplificador Streamer Uniti Atom 40Wx2",
+    },
+    {
+      src: "/productos/NAIM-NAIT-5SI.jpg",
+      alt: "Amplificador Integrado NAIT 5SI 60Wx2",
+    },
+    {
+      src: "/productos/THEVA-N2-C700-BLACK.jpg",
+      alt: "Theva N2+C700",
+    },
+    {
+      src: "/productos/NAIM-UNITI-NOVA.jpg",
+      alt: "Amplificador Streamer Uniti Nova 80Wx2",
+    },
+  ];
   const benefits = [
     {
       icon: <IoVolumeHigh className="w-15 h-15" />,
@@ -383,7 +307,7 @@ function PromocionesSection() {
   return (
     <section id="promociones" className="py-24 bg-[#F8F9FA]">
       <div className="container px-4 md:px-6">
-        <h2 className="text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl text-center mb-16">
+        <h2 className="text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl text-center mb-6">
           Promociones <span className="text-[#7F6A4C]">Exclusivas</span>
         </h2>
         <p className="text-[#495057] text-2xl text-center mb-6">
@@ -392,14 +316,24 @@ function PromocionesSection() {
           ¡No te lo pierdas!
         </p>
 
-        <div className="relative lg:col-span-2 h-[300px] rounded-xl overflow-hidden group shadow-md mb-6">
-          <Image
-            src="/promociones/COVER de interna de Marca Celular.png"
-            alt="Promociones especiales"
-            fill
-            className="object-cover transition-transform "
-          />
+        <div className="relative lg:col-span-2 h-[500px] rounded-xl overflow-hidden group shadow-md mb-6">
+          <picture>
+            {/* Imagen para móviles */}
+            <source
+              media="(max-width: 768px)"
+              srcSet="/promociones/banner-movil.png"
+            />
+            {/* Imagen para escritorio */}
+            <Image
+              src="/promociones/banner oficial2.png"
+              alt="Promociones especiales"
+              fill
+              className="object-cover transition-transform"
+              sizes="(max-width: 768px) 100vw, 100vw"
+            />
+          </picture>
         </div>
+
         <div>
           <h3 className="text-3xl font-bold text-center mb-8 ">
             Beneficios de comprar durante el Hot Sale
@@ -415,9 +349,32 @@ function PromocionesSection() {
               </div>
             ))}
           </div>
+        </div>
+        <div>
+          <h3 className="text-3xl font-bold text-center mb-12 mt-16">
+            Productos que puedes encontrar en el Hot Sale
+          </h3>
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {galleryImages.map((image, index) => (
+              <div key={index} className="group">
+                <div className="relative aspect-square rounded-xl overflow-hidden shadow-md mb-3">
+                  <Image
+                    src={image.src}
+                    alt={image.alt}
+                    fill
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                    className="object-cover transition-transform group-hover:scale-105"
+                  />
+                </div>
+                <h4 className="text-lg font-semibold text-center text-[#495057] group-hover:text-[#7F6A4C]">
+                  {image.alt}
+                </h4>
+              </div>
+            ))}
+          </div>
           <div className="flex justify-center items-center text-center mt-10">
             <Link
-              href="https://fortuneacoustics.com/"
+              href="https://fortuneacoustics.com/ofertas-mensuales/"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -441,76 +398,29 @@ function ContactSection() {
             <h2 className="text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl mb-6">
               Mantente <span className="text-[#7F6A4C]">Conectado</span>
             </h2>
-            <p className="text-[#495057]  text-xl mb-6">
-              Suscríbete para recibir promociones exclusivas, invitaciones a
-              eventos especiales y ser el primero en conocer nuestros nuevos
-              equipos de audio.
-            </p>
+
             <div className="bg-white p-6 rounded-xl shadow-md">
-              <form className="space-y-4">
-                <div>
-                  <label
-                    htmlFor="name"
-                    className="block text-sm font-medium mb-2"
-                  >
-                    Nombre Completo
-                  </label>
-                  <Input
-                    id="name"
-                    placeholder="Juan Pérez"
-                    className="border-[#B09B6B]/30 focus:border-[#7F6A4C]"
-                  />
-                </div>
-                <div>
-                  <label
-                    htmlFor="phone"
-                    className="block text-sm font-medium mb-2"
-                  >
-                    Número de Teléfono
-                  </label>
-                  <Input
-                    id="phone"
-                    type="tel"
-                    placeholder="+34 (555) 000-000"
-                    className="border-[#B09B6B]/30 focus:border-[#7F6A4C]"
-                  />
-                </div>
-                <div>
-                  <label
-                    htmlFor="email"
-                    className="block text-sm font-medium mb-2"
-                  >
-                    Correo Electrónico
-                  </label>
-                  <Input
-                    id="email"
-                    type="email"
-                    placeholder="juan@ejemplo.com"
-                    className="border-[#B09B6B]/30 focus:border-[#7F6A4C]"
-                  />
-                </div>
-                <div>
-                  <label
-                    htmlFor="message"
-                    className="block text-sm font-medium mb-2"
-                  >
-                    Mensaje (Opcional)
-                  </label>
-                  <Textarea
-                    id="message"
-                    placeholder="Cuéntanos qué te interesa..."
-                    className="border-[#B09B6B]/30 focus:border-[#7F6A4C]"
-                  />
-                </div>
-                <Button className="w-full bg-[#7F6A4C] hover:bg-[#897A54] text-white">
+              <div>
+                <p className="text-[#495057]  text-xl mb-6">
+                  Suscríbete para recibir promociones exclusivas, invitaciones a
+                  eventos especiales y ser el primero en conocer nuestros nuevos
+                  equipos de audio.
+                </p>
+              </div>
+              <Link
+                href="https://zfrmz.com/cm2a4Qa1gX0TLJe61tj9"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Button className="w-full h-12 bg-[#7F6A4C] hover:bg-[#897A54] text-white text-2xl">
                   Suscribirse a Promociones
                 </Button>
-              </form>
+              </Link>
             </div>
           </div>
           <div className="relative h-[500px] rounded-xl overflow-hidden shadow-lg">
             <Image
-              src="/Sonos 2.jpg"
+              src="/focal-cover-02-fortune-acoustics.jpg"
               alt="Configuración de audio de alta gama"
               fill
               className="object-cover"
@@ -584,45 +494,32 @@ function Footer() {
           </div>
           <div>
             <h3 className="text-lg font-semibold mb-4 text-[#B09B6B]">
-              Empresa
+              Navegación
             </h3>
             <ul className="space-y-2 text-sm">
               <li>
                 <Link
-                  href="#about"
-                  className="text-white/80 hover:text-[#B09B6B]"
-                >
-                  Sobre Nosotros
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="#values"
-                  className="text-white/80 hover:text-[#B09B6B]"
-                >
-                  Nuestros Valores
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="#showroom"
-                  className="text-white/80 hover:text-[#B09B6B]"
-                >
-                  Showroom
-                </Link>
-              </li>
-              <li>
-                <Link
                   href="#promociones"
                   className="text-white/80 hover:text-[#B09B6B]"
+                  onClick={(e) => scrollToSection(e, "#promociones")}
                 >
                   Promociones
                 </Link>
               </li>
               <li>
                 <Link
+                  href="#showroom"
+                  className="text-white/80 hover:text-[#B09B6B]"
+                  onClick={(e) => scrollToSection(e, "#showroom")}
+                >
+                  Showroom
+                </Link>
+              </li>
+              <li>
+                <Link
                   href="#contact"
                   className="text-white/80 hover:text-[#B09B6B]"
+                  onClick={(e) => scrollToSection(e, "#contact")}
                 >
                   Contacto
                 </Link>
@@ -684,6 +581,14 @@ function Footer() {
           </div>
         </div>
         <div className="mt-12 pt-8 border-t border-white/10 text-center text-sm text-white/80">
+          <Link
+            href="https://fortuneacoustics.com/terminos-y-condiciones/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-white/80 hover:text-[#B09B6B]"
+          >
+            <p>Terminos y condiciones</p>
+          </Link>
           <p>
             © {new Date().getFullYear()} Fortune Acoustics. Todos los derechos
             reservados.
