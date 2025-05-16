@@ -154,7 +154,7 @@ function HeroSection() {
     <section id="hero" className="relative h-[90vh]">
       <div className="h-full ">
         <Image
-          src="/Banner hot sale.png"
+          src="/banner oficial.png"
           alt="Equipos de audio de alta gama"
           fill
           className="object-cover object-center"
@@ -324,11 +324,11 @@ function PromocionesSection() {
             {/* Imagen para móviles */}
             <source
               media="(max-width: 768px)"
-              srcSet="/promociones/oferta1-movil.png"
+              srcSet="/promociones/banner-movil.png"
             />
             {/* Imagen para escritorio */}
             <Image
-              src="/promociones/oferta1.png"
+              src="/promociones/banner oficial2.png"
               alt="Promociones especiales"
               fill
               className="object-cover transition-transform"
