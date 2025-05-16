@@ -423,7 +423,7 @@ function ContactSection() {
           </div>
           <div className="relative h-[500px] rounded-xl overflow-hidden shadow-lg">
             <Image
-              src="/Sonos 2.jpg"
+              src="/focal-cover-02-fortune-acoustics.jpg"
               alt="Configuración de audio de alta gama"
               fill
               className="object-cover"
