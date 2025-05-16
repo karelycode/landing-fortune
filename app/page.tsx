@@ -4,8 +4,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
 import { useState } from "react";
 import {
   IoVolumeHigh,
@@ -21,7 +19,6 @@ import {
   IoMailOutline,
   IoLocationOutline,
 } from "react-icons/io5";
-import { useRouter } from "next/navigation";
 
 const scrollToSection = (
   e: React.MouseEvent<HTMLAnchorElement>,
