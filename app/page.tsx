@@ -39,7 +39,6 @@ export default function LandingPage() {
       <HeroSection />
       <PromocionesSection />
       <ShowroomSection />
-
       <ContactSection />
       <Footer />
     </div>
@@ -114,21 +113,21 @@ function MobileNav() {
             <Link
               href="#promociones"
               className="text-lg font-medium hover:text-[#B09B6B] transition-colors"
-              onClick={() => setIsOpen(false)}
+              onClick={(e) => scrollToSection(e, "#promociones")}
             >
               Promociones
             </Link>
             <Link
               href="#showroom"
               className="text-lg font-medium hover:text-[#B09B6B] transition-colors"
-              onClick={() => setIsOpen(false)}
+              onClick={(e) => scrollToSection(e, "#showroom")}
             >
               Showroom
             </Link>
             <Link
               href="#contact"
               className="text-lg font-medium hover:text-[#B09B6B] transition-colors"
-              onClick={() => setIsOpen(false)}
+              onClick={(e) => scrollToSection(e, "#contact")}
             >
               Contacto
             </Link>
@@ -170,7 +169,7 @@ function HeroSection() {
 function ShowroomSection() {
   const galleryImages = [
     {
-      src: "/IMG-20250312-WA0010.jpg",
+      src: "/shr7.jpg",
       alt: "Amplificadores de alta fidelidad",
     },
     {
@@ -178,19 +177,19 @@ function ShowroomSection() {
       alt: "Sala de audición principal",
     },
     {
-      src: "/IMG-20250312-WA0014.jpg",
+      src: "/shr9.jpg",
       alt: "Colección de altavoces premium",
     },
     {
-      src: "/Sonus Faber 1.jpg",
+      src: "/shr3.png",
       alt: "Tocadiscos de edición limitada",
     },
     {
-      src: "/Pro Ject 2.jpg",
+      src: "/shr8.jpg",
       alt: "Auriculares audiófilo",
     },
     {
-      src: "/Naim 2.jpg",
+      src: "/shr2.png",
       alt: "Equipos de audio vintage",
     },
   ];
@@ -541,6 +540,7 @@ function Footer() {
                 <Link
                   href="#promociones"
                   className="text-white/80 hover:text-[#B09B6B]"
+                  onClick={(e) => scrollToSection(e, "#promociones")}
                 >
                   Promociones
                 </Link>
@@ -549,6 +549,7 @@ function Footer() {
                 <Link
                   href="#showroom"
                   className="text-white/80 hover:text-[#B09B6B]"
+                  onClick={(e) => scrollToSection(e, "#showroom")}
                 >
                   Showroom
                 </Link>
@@ -557,6 +558,7 @@ function Footer() {
                 <Link
                   href="#contact"
                   className="text-white/80 hover:text-[#B09B6B]"
+                  onClick={(e) => scrollToSection(e, "#contact")}
                 >
                   Contacto
                 </Link>
@@ -618,6 +620,14 @@ function Footer() {
           </div>
         </div>
         <div className="mt-12 pt-8 border-t border-white/10 text-center text-sm text-white/80">
+          <Link
+            href="https://fortuneacoustics.com/terminos-y-condiciones/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-white/80 hover:text-[#B09B6B]"
+          >
+            <p>Terminos y condiciones</p>
+          </Link>
           <p>
             © {new Date().getFullYear()} Fortune Acoustics. Todos los derechos
             reservados.
