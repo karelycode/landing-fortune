@@ -110,26 +110,35 @@ function MobileNav() {
       </Button>
 
       {isOpen && (
-        <div className="fixed inset-0 top-16 z-50 bg-white p-6 animate-in fade-in slide-in-from-top-5">
-          <nav className="flex flex-col gap-6">
+        <div className="fixed inset-0 top-16 z-50 bg-white/95 backdrop-blur-sm p-6 animate-in fade-in slide-in-from-top-5">
+          <nav className="flex flex-col gap-6 bg-white rounded-lg p-4 shadow-lg max-w-md mx-auto">
             <Link
               href="#promociones"
               className="text-lg font-medium hover:text-[#B09B6B] transition-colors"
-              onClick={(e) => scrollToSection(e, "#promociones")}
+              onClick={(e) => {
+                scrollToSection(e, "#promociones");
+                setIsOpen(false);
+              }}
             >
               Promociones
             </Link>
             <Link
               href="#showroom"
               className="text-lg font-medium hover:text-[#B09B6B] transition-colors"
-              onClick={(e) => scrollToSection(e, "#showroom")}
+              onClick={(e) => {
+                scrollToSection(e, "#showroom");
+                setIsOpen(false);
+              }}
             >
               Showroom
             </Link>
             <Link
               href="#contact"
               className="text-lg font-medium hover:text-[#B09B6B] transition-colors"
-              onClick={(e) => scrollToSection(e, "#contact")}
+              onClick={(e) => {
+                scrollToSection(e, "#contact");
+                setIsOpen(false);
+              }}
             >
               Contacto
             </Link>
@@ -488,7 +497,7 @@ function Footer() {
           </div>
           <div>
             <h3 className="text-lg font-semibold mb-4 text-[#B09B6B]">
-              Empresa
+              Navegación
             </h3>
             <ul className="space-y-2 text-sm">
               <li>
