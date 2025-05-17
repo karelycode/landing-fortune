@@ -183,7 +183,7 @@ function HeroSection() {
 function ShowroomSection() {
   const galleryImages = [
     {
-      src: "/shr7.jpg",
+      src: "/shr7.JPG",
       alt: "Amplificadores de alta fidelidad",
     },
     {
@@ -191,7 +191,7 @@ function ShowroomSection() {
       alt: "Sala de audición principal",
     },
     {
-      src: "/shr9.jpg",
+      src: "/shr9.JPG",
       alt: "Colección de altavoces premium",
     },
     {
@@ -199,7 +199,7 @@ function ShowroomSection() {
       alt: "Tocadiscos de edición limitada",
     },
     {
-      src: "/shr8.jpg",
+      src: "/shr8.JPG",
       alt: "Auriculares audiófilo",
     },
     {
