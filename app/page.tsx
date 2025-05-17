@@ -149,14 +149,20 @@ function MobileNav() {
 function HeroSection() {
   return (
     <section id="hero" className="relative h-[90vh]">
-      <div className="h-full ">
-        <Image
-          src="/banner oficial.png"
-          alt="Equipos de audio de alta gama"
-          fill
-          className="object-cover object-center"
-          priority
-        />
+      <div className="h-full">
+        <picture>
+          {/* Imagen para móviles */}
+          <source media="(max-width: 768px)" srcSet="/banner-movil5.png" />
+          {/* Imagen para escritorio (default) */}
+          <Image
+            src="/banner.png"
+            alt="Equipos de audio de alta gama"
+            fill
+            className="object-cover object-center"
+            sizes="100vw"
+            priority
+          />
+        </picture>
       </div>
       <div className="absolute bottom-3 left-0 right-0 bg-white/0 backdrop-blur-sm p-4">
         <Link
@@ -321,11 +327,11 @@ function PromocionesSection() {
             {/* Imagen para móviles */}
             <source
               media="(max-width: 768px)"
-              srcSet="/promociones/banner-movil.png"
+              srcSet="/promociones/banner-oferta-movil.png"
             />
             {/* Imagen para escritorio */}
             <Image
-              src="/promociones/banner oficial2.png"
+              src="/promociones/banner-oferta.png"
               alt="Promociones especiales"
               fill
               className="object-cover transition-transform"
