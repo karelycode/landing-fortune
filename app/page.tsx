@@ -148,33 +148,35 @@ function MobileNav() {
 
 function HeroSection() {
   return (
-    <section id="hero" className="relative h-[90vh]">
-      <div className="h-full">
-        <picture>
-          {/* Imagen para móviles */}
-          <source media="(max-width: 768px)" srcSet="/banner-movil5.png" />
-          {/* Imagen para escritorio (default) */}
-          <Image
-            src="/banner.png"
-            alt="Equipos de audio de alta gama"
-            fill
-            className="object-cover object-center"
-            sizes="100vw"
-            priority
-          />
-        </picture>
-      </div>
-      <div className="absolute bottom-3 left-0 right-0 bg-white/0 backdrop-blur-sm p-4">
-        <Link
-          href="https://www.hotsale.com.mx/"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="flex justify-center"
-        >
-          <p className="text-[#7F6A4C] hover:text-[#897A54] font-medium">
-            Conocer más del Hot Sale
-          </p>
-        </Link>
+    <section id="hero" className="py-6">
+      <div className="container px-4 md:px-2">
+        <div className="relative lg:col-span-2 h-[560px] overflow-hidden group mb-2">
+          <picture>
+            {/* Imagen para móviles */}
+            <source media="(max-width: 400px)" srcSet="/banner-movil7.png" />
+            {/* Imagen para escritorio (default) */}
+            <Image
+              src="/banner.png"
+              alt="Equipos de audio de alta gama"
+              fill
+              className="object-cover object-center"
+              sizes="(max-width: 768px) 100vw, 100vw"
+              priority
+            />
+          </picture>
+        </div>
+        <div className="relative bottom-0 left-0 right-0 p-4">
+          <Link
+            href="https://www.hotsale.com.mx/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex justify-center"
+          >
+            <p className="text-[#7F6A4C] hover:text-[#897A54] font-medium">
+              Conocer más del Hot Sale
+            </p>
+          </Link>
+        </div>
       </div>
     </section>
   );
